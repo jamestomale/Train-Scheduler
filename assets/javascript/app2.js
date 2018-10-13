@@ -20,13 +20,11 @@
     var firstTrainTime = "";
     var frequency = 0;
     
-    // Capture Button Click
-    $("#submit-newTrain").on("click", function(event) {
+    // Button for Administer to Add Trains
+    $("#submit-newTrain-btn").on("click", function(event) {
       event.preventDefault();
-      
-      // YOUR TASK!!!
-      // Code in the logic for storing and retrieving the most recent user.
-      // Don't forget to provide initial data to your Firebase database.
+
+      //To store and retrieve the most recent user.
       trainName = $("#trainName-input").val().trim();
       destination = $("#destination-input").val().trim();
       firstTrainTime = $("#firstTrainTime-input").val().trim();
@@ -77,3 +75,8 @@
       $("#firstTrainTime-display").text(snapshot.val().firstTrainTime);
       $("#frequency-display").text(snapshot.val().frequency);
     });
+
+      // Add each train's data into the table
+  $("#employee-table > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
+  firstTrainTime + "</td><td>" + frequency + "</td><td>" + nextTrain + "</td><td>" + minutesTillTrain + "</td></tr>");
+});
